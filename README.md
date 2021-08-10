@@ -8,3 +8,7 @@ this docker about symfony topics certification
 - make restart
 ## Important
 - use sudo chown -R $USER ./ (for adding access to your IDE)
+## re init projetc
+- make exec
+- rm -rf *
+- rm -r .[a-zA-Z_-]*
