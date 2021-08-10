@@ -1,0 +1,22 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+        - 8062:80
+    volumes:
+        - ./application:/var/www/html
+        - ./vhost:/etc/apache2/sites-available
+  redis:
+     image: redis:latest
+  mail:
+     image: schickling/mailcatcher
+     ports:
+        - 1080:1080
+        - 1025:1025
+  mercure:
+     image: dunglas/mercure
+     environment:
+        - "JWT_KEY=password"
+        - "ALLOW_ANONYMOUS=1"
+        - "CORS_ALLOWED_ORIGINS=*"
